@@ -8,7 +8,7 @@ public class FileWork {
         File file = new File(fileName);
         String[] strings = new String[300];
         String[] result = new String[strings.length];
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             if (file.length() == 0) {
                 return new String[0];
             }
@@ -16,12 +16,12 @@ public class FileWork {
             int value = bufferedReader.read();
             int count = 0;
             int count1 = 0;
-            while(value != -1){
-                while(value != 32 && value != -1){
+            while (value != -1) {
+                while (value != 32 && value != -1) {
                     builder.append((char)value);
                     value = bufferedReader.read();
                 }
-                if (builder.length() > 0){
+                if (builder.length() > 0) {
                     strings[count++] = builder.toString();
                     builder.setLength(0);
                 }
