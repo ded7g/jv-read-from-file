@@ -1,6 +1,9 @@
 package core.basesyntax;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class FileWork {
@@ -29,7 +32,7 @@ public class FileWork {
             }
             for (String string : strings) {
                 if (string != null && !string.isEmpty()) {
-                    if (string.charAt(0) == 'w' ||  string.charAt(0) == 'W') {
+                    if (string.charAt(0) == 'w' || string.charAt(0) == 'W') {
                         result[count1++] = string.toLowerCase();
                     }
                 }
