@@ -20,7 +20,7 @@ public class FileWork {
             int count = 0;
             int count1 = 0;
             while (value != -1) {
-                while (value != 32 && value != -1) {
+                while (value != -1 && !Character.isWhitespace((char)value)) {
                     builder.append((char)value);
                     value = bufferedReader.read();
                 }
@@ -32,11 +32,13 @@ public class FileWork {
             }
             for (String string : strings) {
                 if (string != null && !string.isEmpty()) {
+                    String cleaned = string.replaceAll("[^a-zA-Z]", "");
                     if (string.charAt(0) == 'w' || string.charAt(0) == 'W') {
-                        result[count1++] = string.toLowerCase();
+                        result[count1++] = cleaned.toLowerCase();
                     }
                 }
             }
+            Arrays.sort(result, 0, count1);
             return Arrays.copyOf(result, count1);
         } catch (IOException e) {
             throw new RuntimeException("cant read file ",e);
